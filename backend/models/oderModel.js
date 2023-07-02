@@ -74,24 +74,24 @@ const oderSchema = new mongoose.Schema({
             required: true
         },
         iteamPrice: {
-            type: Date,
+            type: Number,
             required: true,
             default: 0
         },
         taxPrice: {
-            type: Date,
+            type: Number,
             required: true,
             default: 0
         },
 
     },
     shippingPrice: {
-        type: Date,
+        type: Number,
         required: true,
         default: 0
     },
     totalPrice: {
-        type: Date,
+        type: Number,
         required: true,
         default: 0
     },
@@ -108,4 +108,4 @@ const oderSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.Model("Oder", oderSchema);
+module.exports = mongoose.model("Order", oderSchema);
