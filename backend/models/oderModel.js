@@ -47,9 +47,9 @@ const oderSchema = new mongoose.Schema({
                 required: [true, "Please Enter The Image."]
             },
             product: {
-                type: String,
+                type: mongoose.Schema.ObjectId,
                 ref: "Product",
-                required: [true, "Please Enter The Image."]
+                required: true
             },
 
         }
@@ -100,7 +100,7 @@ const oderSchema = new mongoose.Schema({
         required: true,
         default: "Processing"
     },
-    deliverAt: Date,
+    deliveredAt: Date,
     createAt: {
         type: Date,
         default: Date.now,
