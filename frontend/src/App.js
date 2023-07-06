@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
+import Header from './components/Layout/Header/Header';
+import Footer from './components/Layout/Footer/Footer';
+import Home from "./components/Home/Home";
+import { useEffect } from 'react';
+import WebFont from 'webfontloader';
 
 function App() {
+
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ["Roboto", "Droid Sans", "Chilanka"],
+      }
+    });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path='/' Component={Home} />
+        </Routes>
+        <Footer />
+      </Router>
+    </>
   );
 }
-
 export default App;

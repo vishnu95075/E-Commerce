@@ -20,22 +20,22 @@ exports.createProduct = catchAsyncError(async (req, res, next) => {
 );
 //Get All Product
 exports.getAllProduct = catchAsyncError(async (req, res, next) => {
-    const resultPerPage = 5;
-    const productCount = await Product.countDocuments();
+    const resultPerPage = 8;
+    const productsCount = await Product.countDocuments();
 
     const apifeature = new ApiFeatures(Product.find(), req.query)
         .search()
         .filter()
         .pagination(resultPerPage);
-    const product = await apifeature.query;
+    const products = await apifeature.query;
 
-    if (!product) {
+    if (!products) {
         return next(new ErrorHandler("Product not found", 404));
     }
     res.status(200).json({
         seccess: true,
-        product,
-        productCount
+        products,
+        productsCount
     })
 });
 //Update Product -->Admin
