@@ -12,19 +12,19 @@ const Home = () => {
     const alert = useAlert();
 
     const dispatch = useDispatch();
-    const {loading,error, products,productsCount } = useSelector(state => state.products);
+    const { loading, error, products } = useSelector(state => state.products);
 
     useEffect(() => {
-        if(error){
+        if (error) {
             alert.error(error);
             dispatch(clearErrors());
         }
         dispatch(getProduct());
-    }, [dispatch,error,alert])
+    }, [dispatch, error, alert])
 
     return (
         <Fragment>
-            {loading ? <Loader/> : <Fragment> <MetaData title="E-COMMERCE" />
+            {loading ? <Loader /> : <Fragment> <MetaData title="E-COMMERCE" />
                 <div className="banner">
                     <p>Welcome to Ecommerce</p>
                     <h1>FIND AMAZING PRODUCTS BELOW</h1>

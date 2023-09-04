@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
 import logo from "../../../images/logo.png";
+import { Link } from "react-router-dom";
 
 const options = {
   burgerColorHover: "#eb4034",
@@ -36,7 +37,9 @@ const options = {
 };
 
 const Header = () => {
-  return <ReactNavbar {...options} />;
+  return <> <Link to={'/login'}>Login</Link>
+    <ReactNavbar {...options} />
+  </>;
 };
 
 export default Header;

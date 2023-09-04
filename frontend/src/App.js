@@ -8,6 +8,7 @@ import WebFont from 'webfontloader';
 import ProductDetails from './components/Product/ProductDetails.js';
 import Products from './components/Product/Products.js'
 import Search from "./components/Product/Search.js"
+import LoginSignUp from './components/User/LoginSignUp';
 
 function App() {
 
@@ -25,8 +26,9 @@ function App() {
         <Route exact path='/' Component={Home} />
         <Route exact path='/product/:id' Component={ProductDetails} />
         <Route exact path='/products' Component={Products} />
-        <Route  path='/products/:keyword' Component={Products} />
+        <Route path='/products/:keyword' Component={Products} />
         <Route exact path='/search' Component={Search} />
+        <Route exact path={'/login'} Component={LoginSignUp} />
       </Routes>
       <Footer />
     </Router>
