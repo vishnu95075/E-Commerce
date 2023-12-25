@@ -7,6 +7,7 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from '../Layout/Loader/Loader';
 import { useAlert } from 'react-alert';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const alert = useAlert();
@@ -26,6 +27,7 @@ const Home = () => {
         <Fragment>
             {loading ? <Loader /> : <Fragment> <MetaData title="E-COMMERCE" />
                 <div className="banner">
+                <Link to={'/login'}>Login</Link>
                     <p>Welcome to Ecommerce</p>
                     <h1>FIND AMAZING PRODUCTS BELOW</h1>
                     <a href="#container">

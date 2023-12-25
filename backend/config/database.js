@@ -1,14 +1,8 @@
 const mongoose = require("mongoose");
 
-// const connectDatabase = () => {
-//     mongoose.connect("mongodb://localhost:27017/NewEcommerce", {
-//         useNewUrlParser: true
-//     })
-// }
-
 const connectDatabase = async () => {
     try {
-      const conn = await mongoose.connect(`mongodb://localhost:27017/NewEcommerce`, {
+      const conn = await mongoose.connect(process.env.DB_URI, {
         useNewUrlParser: true,
       });
       console.log(`MongoDB Connected: ${conn.connection.host}`);

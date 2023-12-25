@@ -1,0 +1,26 @@
+PORT=4000
+
+DB_URI= "mongodb://localhost:27017/Ecommerce"
+
+JWT_SECRET_KEY=jasvbsubdgkisjvgweugvowwvihvuihns
+
+JWT_EXPIRE=5d
+
+COOKIES_EXPIRE=5
+
+SMPT_MAIL=vishnukp95075@gmail.com
+
+SMPT_PASSWORD=ioywpfeb
+
+SMPT_SERVICE=gmail
+
+SMPT_PORT=456
+
+CLOUDINARY_NAME='dtwwoogvv'
+
+CLOUDINARY_API_KEY='378274729558869'
+
+CLOUDINARY_API_SECRET='uW5aBEu5QFHGIpNMRydqJ8Dj4FE'
+
+
+
