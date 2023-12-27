@@ -1,23 +1,40 @@
 const ErrorHandler = require("../utils/errorhandler");
 const catchAsyncError = require("../middleware/catchAsyncError");
 const User = require("../models/userModel");
-const Product = require("../models/productModel")
+const Product = require("../models/productModel");
 const sendToken = require("../utils/jwtToken");
-const sendEmail = require("../utils/sendEmail")
+const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
+const cloudinary = require("cloudinary");
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
+    // const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+    //     folder: "avatars",
+    //     width: 150,
+    //     crop: "scale",
+    // }, (error, result) => {
+    //     if (error) {
+    //         console.error(error);
+    //     } else {
+    //         console.log(result);
+    //         // result contains information about the uploaded image
+    //         // e.g., result.secure_url contains the URL of the uploaded image
+    //     }
+    // });
+
     const { name, email, password } = req.body;
 
     const user = await User.create({
-        name, email, password,
+        name,
+        email,
+        password,
         avatar: {
-            public_id: "Sample Id",
-            url: "sample url"
-        }
+            public_id: "myCloud.public_id",
+            url:" myCloud.secure_url",
+        },
     });
 
-    sendToken(user, 200, res);
+    sendToken(user, 201, res);
 });
 
 exports.loginUser = catchAsyncError(async (req, res, next) => {

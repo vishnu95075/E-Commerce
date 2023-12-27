@@ -4,15 +4,18 @@ const app = express();
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute")
 const oderRoute = require("./routes/oderRoute")
+const cors = require('cors');
 
 const cookieParser = require("cookie-parser");
+const fileUpload=require("express-fileupload")
 
 var bodyParser = require('body-parser');
+app.use(fileUpload())
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use("/api/v1", product);

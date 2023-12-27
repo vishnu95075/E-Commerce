@@ -24,6 +24,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path='/' Component={Home} />
+        <Route exact path='/home' Component={Home} />
         <Route exact path='/product/:id' Component={ProductDetails} />
         <Route exact path='/products' Component={Products} />
         <Route path='/products/:keyword' Component={Products} />

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction"
 import Loader from '../Layout/Loader/Loader';
 import { useAlert } from "react-alert"
-
+import profilePic from "./Profile.png"
 
 const LoginSignUp = () => {
     const dispatch = useDispatch();
@@ -27,14 +27,15 @@ const LoginSignUp = () => {
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+
     const [user, setUser] = useState({
-        name: "",
-        email: "",
-        password: "",
+        name: "Viu",
+        email: "vi@gmail.com",
+        password: "1234567",
     });
 
     const [avatar, setAvatar] = useState();
-    const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
+    const [avatarPreview, setAvatarPreview] = useState();
 
     const { name, password, email } = user;
 
@@ -43,6 +44,7 @@ const LoginSignUp = () => {
         dispatch(login(loginEmail, loginPassword));
     }
 
+console.log({name},{email},{password},{avatar},{avatarPreview});
 
     const registerSubmit = (e) => {
         e.preventDefault();
@@ -176,26 +178,25 @@ const LoginSignUp = () => {
                                         placeholder='Password'
                                         required
                                         name='password'
-                                        value={loginPassword}
+                                        value={password}
                                         onChange={registerDataChange}
                                     />
                                 </div>
 
-                                <div id="registerImage">
+                                {/* <div id="registerImage">
                                     <img
                                         src={avatarPreview}
                                         alt='Avatar Preview'
                                     />
                                     <input type="file"
                                         name='avatar'
-                                        accept='image/'
                                         onChange={registerDataChange}
                                     />
-                                </div>
+                                </div> */}
                                 <input
                                     type='submit'
-
                                     className='signUpBtn'
+                                    value={"Submit"}
                                 />
                             </form>
                         </div>

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,12 +15,13 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
 
-const pages = ['Home', 'Products', 'Contact', 'About', 'Blog'];
+const pages = ['home', 'products', 'contact', 'about'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const navigate = useNavigate();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -27,6 +29,14 @@ const Header = () => {
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
+
+    const handleNavLink = (event) => {
+        event.preventDefault();
+        const link = event.target.innerText.toLowerCase();
+        navigate(`/${link}`)
+        console.log(link);
+        setAnchorElNav(null);
+    }
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
@@ -45,7 +55,6 @@ const Header = () => {
                         variant="h6"
                         noWrap
                         component="a"
-                        href='/'
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -56,7 +65,7 @@ const Header = () => {
                             textDecoration: 'none',
                         }}
                     >
-                       E-Commerce
+                        E-Commerce
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -89,8 +98,10 @@ const Header = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                <MenuItem key={page} onClick={handleNavLink}>
+                                    <Typography textAlign="center"
+                                        
+                                    >{page}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -118,7 +129,7 @@ const Header = () => {
                         {pages.map((page) => (
                             <Button
                                 key={page}
-                                onClick={handleCloseNavMenu}
+                                onClick={handleNavLink}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page}
