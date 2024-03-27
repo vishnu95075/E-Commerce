@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect } from 'react'
-import Carousel from "react-material-ui-carousel"
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component"
@@ -40,9 +39,8 @@ const ProductDetails = () => {
                 loading ? <Loader /> : <Fragment>
                     <MetaData title={`${product.name} -- ECOMMERCE` }/>
 
-                    <div className='ProductDeatials'>
+                    <div className='ProductDetails'>
                         <div>
-                            <Carousel>
                                 {
                                     product.images && product.images.map((item, i) => (
                                         <img
@@ -53,7 +51,6 @@ const ProductDetails = () => {
                                         />
                                     ))
                                 }
-                            </Carousel>
                         </div>
 
                         <div>
