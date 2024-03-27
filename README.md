@@ -1,6 +1,6 @@
 # MERN E-COMMERCE PROJECT
 
-Hi! My name is **Vishnu Kumar**, I have created this tutorial to teach MERN Stack Project.
+Hi! My name is **Vishnu Kumar**, I have created MERN Stack Project.
 
 # Install Dependencies
 
