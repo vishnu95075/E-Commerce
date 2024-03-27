@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-
+import SearchHeader from '../../Product/SearchHeader';
 
 const pages = ['home', 'products', 'contact', 'about'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -136,7 +136,7 @@ const Header = () => {
                             </Button>
                         ))}
                     </Box>
-
+                    <SearchHeader/>
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -165,6 +165,7 @@ const Header = () => {
                                 </MenuItem>
                             ))}
                         </Menu>
+                       
                     </Box>
                 </Toolbar>
             </Container>
