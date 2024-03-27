@@ -1,5 +1,6 @@
 # MERN E-COMMERCE PROJECT 
 
+<<<<<<< HEAD
 Hi! My name is **Vishnu Kumar**, I have created this tutorial to teach MERN Stack Project.
 
 # Install Dependencies
@@ -27,3 +28,5 @@ SMPT_HOST=
 SMPT_PORT=
 
 _fill each filed with your info respectively_
+=======
+>>>>>>> 86ea8452cbac84d02f1a4a619f7307a1f82f3538
